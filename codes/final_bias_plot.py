@@ -1,3 +1,21 @@
+# libraries
+import os
+from pathlib import Path
+from collections import defaultdict
+import scipy
+import random
+import numpy as np
+import xarray as xr
+import pandas as pd
+import joblib
+from skimage.filters import sobel
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.metrics import r2_score, max_error, mean_squared_error, mean_absolute_error, median_absolute_error
+import keras
+from keras import Sequential, regularizers
+from keras.layers import Dense, BatchNormalization, Dropout
+from statsmodels.nonparametric.smoothers_lowess import lowess
+
 def create_bucket_detrend_bias():
   data_types = ["raw", "seasonal", "deseason"]
   map_data = defaultdict(float) # Data by ML approach
